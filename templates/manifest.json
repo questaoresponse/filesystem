@@ -1,0 +1,26 @@
+{
+  "background_color": "#ffffff",
+  "description": "instalacao",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "servidorapp.questaoresponse.repl",
+  "orientation": "landscape",
+  "scope": "/",
+  "short_name": "servidorapp.questaoresponse.repl",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+  "icons": [],
+  "shortcuts": [],
+  "lang": "pt",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://servidorapp.questaoresponse.repl.co/",
+      "id": ""
+    }
+  ],
+  "iarc_rating_id": "teste"
+}
