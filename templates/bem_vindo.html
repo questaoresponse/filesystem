@@ -10,35 +10,35 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
         <script>
-// var projetos=[]
-// var projetos_atuais=document.querySelector('#projetos_atuais')
-// function create_titulo(data_a){
-//     site_name=data_a[0]
-//     var titulo=document.querySelector('#titulo')
-//     titulo.textContent=site_name
-// }
-// function create_texto(data_a){
-//     var texto=document.querySelector('#texto')
-//     texto.textContent=site_texto
-// }
-// function adicionar_menu(data_a){
-// var menu=document.querySelector('#menu_div')
-// var opcao=document.createElement('div')
-// opcao.className='opcao'
-// opcao.textContent=data_a[0]
-// menu.appendChild(opcao)
-// }
-// for (var i=0;i<data.length;i++){
-//     projetos.push(data[i])
-//     adicionar_menu(data[i])
-// }
-// function trocar_projetos(){
+var projetos=[]
+var projetos_atuais=document.querySelector('#projetos_atuais')
+function create_titulo(data_a){
+    site_name=data_a[0]
+    var titulo=document.querySelector('#titulo')
+    titulo.textContent=site_name
+}
+function create_texto(data_a){
+    var texto=document.querySelector('#texto')
+    texto.textContent=site_texto
+}
+function adicionar_menu(data_a){
+var menu=document.querySelector('#menu_div')
+var opcao=document.createElement('div')
+opcao.className='opcao'
+opcao.textContent=data_a[0]
+menu.appendChild(opcao)
+}
+for (var i=0;i<data.length;i++){
+    projetos.push(data[i])
+    adicionar_menu(data[i])
+}
+function trocar_projetos(){
     
-// }
-// document.querySelector('#bt_menu').addEventListener('click',function(){
-//     menu.classList.toggle('aberto')
-//     menu.classList.toggle('fechado')
-// })
+}
+document.querySelector('#bt_menu').addEventListener('click',function(){
+    menu.classList.toggle('aberto')
+    menu.classList.toggle('fechado')
+})
         </script>
     </body>
 </html>
