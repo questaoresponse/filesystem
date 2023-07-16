@@ -4,7 +4,7 @@ app=Flask('app')
 socketio=SocketIO(app)
 @app.route('/')
 def inicio():
-    return render_template('index.html')
+    return render_template('bem_vindo.html')
 @socketio.on('teste')
 def teste(data):
     emit('enviado','mensagem')
