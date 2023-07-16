@@ -5,6 +5,9 @@ socketio=SocketIO(app)
 @app.route('/')
 def inicio():
     return render_template('bem_vindo.html')
+@app.route('/sitepwa')
+def sitepwa():
+    return render_template('index.html')
 @socketio.on('teste')
 def teste(data):
     emit('enviado','mensagem')
