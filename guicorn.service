@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve myapp
+After=network.target
+
+[Service]
+User=questaoresponse
+Group=www-data
+WorkingDirectory="/"
+Environment="PATH=/"
+ExecStart="/" --workers 3 --bind unix:"/" app:app
+
+[Install]
+WantedBy=multi-user.target
