@@ -1,15 +1,15 @@
-name: Build
-
+name: Request HTTP
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  request-http:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - run: |
-          python build_app.py
+    - name: Make HTTP Request
+      uses: actions/http-request@v2
+      with:
+        url: 'https://geralsite.onrender.com/teste_server'  # Substitua pela URL desejada
