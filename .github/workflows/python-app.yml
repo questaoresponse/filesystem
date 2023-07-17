@@ -10,6 +10,5 @@ jobs:
 
     steps:
     - name: Make HTTP Request
-      uses: actions/http-request@v2
-      with:
-        url: 'https://geralsite.onrender.com/teste_server'  # Substitua pela URL desejada
+      run: |
+        curl -X GET https://geralsite.onrender.com/teste_server  # Substitua pela URL desejada
