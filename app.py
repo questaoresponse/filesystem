@@ -61,10 +61,6 @@ def cadastro():
                 return "true"
             else:
                 return "false"
-@app.route('/teste_server')
-def teste_server():
-  subprocess.Popen(["python","substituir.py"])
-  sys.exit()
 @socketio.on('teste')
 def teste(data):
     emit('enviado','mensagem')

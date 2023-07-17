@@ -14,8 +14,8 @@ repository_path = os.path.dirname(os.path.realpath(__file__))
 # os.chdir(build_directory)
 
 # Run the build command
-subprocess.call(["pip","install","--upgrade","pip"])
-subprocess.call(["pip","install","-r","requirements.txt"])
+# subprocess.call(["pip","install","--upgrade","pip"])
+# subprocess.call(["pip","install","-r","requirements.txt"])
 subprocess.call(["gunicorn", "app:app", "--workers", "3"])
 #teste
 # Copy the built artifacts to the output directory
