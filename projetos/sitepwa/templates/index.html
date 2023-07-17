@@ -1,5 +1,41 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <div>oi</div>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu PWA</title>
+  <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+  <h1>Meu Progressive Web App</h1>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+  <script>
+    var socket=io.connect();
+    socket.emit('teste','teste')
+    socket.on('enviado',function(data){
+      var texto=document.createElement('h1')
+      texto.textContent=data
+      document.body.appendChild(texto)
+    })
+socket.on('ping', (timestamp) => {
+  const latency = Date.now() - timestamp;
+  console.log(`Ping: ${latency} ms`);
+});
+setInterval(() => {
+  socket.emit('ping', Date.now());
+}, 1000);
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./pwabuilder-sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registrado com sucesso:', registration);
+        })
+        .catch(function(error) {
+          console.log('Falha ao registrar o Service Worker:', error);
+        });
+    }
+  </script>
+</body>
 </html>
