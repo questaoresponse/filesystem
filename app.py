@@ -4,6 +4,7 @@ from flask_socketio import SocketIO,emit
 import sqlite3
 import subprocess
 import os
+import sys
 app=Flask('app')
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -62,7 +63,8 @@ def cadastro():
                 return "false"
 @app.route('/teste_server')
 def teste_server():
-  subprocess.run(["python","substituir.py"])
+  subprocess.Popen(["python","substituir.py"])
+  sys.exit()
 @socketio.on('teste')
 def teste(data):
     emit('enviado','mensagem')
