@@ -17,7 +17,7 @@ repository_path = os.path.dirname(os.path.realpath(__file__))
 subprocess.call(["python","-m","install","--upgrade","pip"])
 subprocess.call(["pip","install","-r","requirements.txt"])
 subprocess.call(["gunicorn", "app:app", "--workers", "3"])
-
+#teste
 # Copy the built artifacts to the output directory
 # output_directory = os.path.join(repository_path, "output")
 # if not os.path.exists(output_directory):
