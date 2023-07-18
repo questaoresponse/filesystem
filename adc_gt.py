@@ -14,4 +14,4 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 subprocess.run(["git","add","."])
 subprocess.run(["git","commit","-m","adicionar pasta"])
-subprocess.run(["git","push","-u","origin","main"])
+subprocess.run(["git","push","-u","https://github.com/questaoresponse/pwa.git","main"])

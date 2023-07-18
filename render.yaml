@@ -1,9 +1,0 @@
-blueprint: bp
-name: geralpwa
-image: nginx:latest
-environment:
-  FOO: bar
-server:
-  size: small
-  memory: 1Gi
-  storage: 10Gi

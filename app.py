@@ -26,9 +26,9 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 socketio=SocketIO(app)
 def adicionar():
-    # os.getcwd()
-    # subprocess.run(["python",f"{diretorio_atual}/adc_gt.py"])
-    pass
+    os.getcwd()
+    subprocess.run(["python",f"{diretorio_atual}/adc_gt.py"])
+    #pass
 ips_bloqueados = [ '10.0.0.1']
 @app.before_request
 def before_request_app():
