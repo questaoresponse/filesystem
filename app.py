@@ -76,7 +76,7 @@ def cadastro():
     if tipo=="account":
         usuario=request.form.get("usuario")
         senha=request.form.get("senha")
-        if email=="contaprogramarv@gmail.com" and senha=="6626070":
+        if usuario=="admin" and email=="contaprogramarv@gmail.com" and senha=="6626070":
             status="creator"
         tipo2=request.form.get("tipo2")
         cursor.execute('SELECT * FROM tabela_usuarios WHERE usuario=? and tipo="account"',(usuario,))
