@@ -1,0 +1,10 @@
+blueprint: <nome do blueprint>
+name: geralpwa
+blueprint: bp
+image: nginx:latest
+environment:
+  FOO: bar
+server:
+  size: small
+  memory: 1Gi
+  storage: 10Gi
