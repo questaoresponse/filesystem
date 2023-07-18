@@ -1,6 +1,5 @@
-blueprint: <nome do blueprint>
-name: geralpwa
 blueprint: bp
+name: geralpwa
 image: nginx:latest
 environment:
   FOO: bar
