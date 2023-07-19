@@ -1,0 +1,14 @@
+name: Request HTTP
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  request-http:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Make HTTP Request
+      run: |
+        curl -X GET https://geralsite.onrender.com/teste_server  # Substitua pela URL desejada

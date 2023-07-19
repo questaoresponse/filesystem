@@ -1,0 +1,217 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0, shrink-to-fit=no">
+        <link rel="manifest" type="application/json" href="../static/manifest.json">
+        <style>
+body{
+    margin:0px;
+    position:absolute;
+    background:#f0f0f0;
+    width:100%;
+    height:100%;
+}
+#bt-menu{
+    left:1%;
+    top:1.75%;
+    position:absolute;
+    background:rgba(0,0,0,0);
+    width:7.5vh;
+    height:7.5vh;
+    transition:transform 0.2s ease-in-out;
+}
+#bt-menu.aberto{
+    transform-origin: center;
+    transform:rotateY(180deg) scale(1);
+}
+#bt-menu.fechado{
+    transform-origin: center;
+    transform:rotateY(0deg) scale(1);
+}
+#menu_1{
+    border-left:solid 10px blue;
+    position:relative;
+    background:gray;
+    width:90%;
+    height:20%;
+    border-radius:10px;
+}
+#menu_2,#menu_3{
+    border-left:solid 10px blue;
+    position:relative;
+    background:gray;
+    width:90%;
+    height:20%;
+    margin-top:13.3%;
+    border-radius:10px;
+}
+#menu{
+    top:10%;
+    position:absolute;
+    background:#1f1f1f;
+    width:0%;
+    height:90%;
+    transition:width 0.2s ease-in-out;
+    transition:background-color 0.2s ease-in-out;
+}
+#menu.aberto{
+    width:20%;
+    background:#1f1f1f;
+}
+#menu.fechado{
+    width:0%;
+    background:#f0f0f0;
+}
+#pagina{
+    top:10%;
+    position:absolute;
+    width:100%;
+    height:90%;
+    background:#f0f0f0;
+}
+#pagina_projetos{
+    top:10%;
+    position:absolute;
+    width:100%;
+    height:90%;
+    background:#f0f0f0;
+}
+#barra_menu{
+    position:absolute;
+    background:black;
+    width:100%;
+    height:10%;
+}
+#bt-configuracao{
+    left:95%;
+    top:1%;
+    position:absolute;
+    background:black;
+    width:7vh;
+    height:7vh;
+}
+#bt-configuracao img{
+    background:black;
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+#admin{
+    position:fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left:40%;
+    top:3%;
+    width:20%;
+    height:3.25%;
+    background-color: #f0f0f0;
+    border-radius:10px;
+    background-color: rgb(255, 0, 0);
+    color:rgb( 0, 255, 0);
+    animation: change-color 5s linear infinite;
+    transition: background-color 0.3s ease-in-out;
+    font-size:3vh;
+}
+@keyframes change-color {
+  0% {
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 255, 0);
+  }
+  50% {
+    background-color: rgb(0, 255, 0);
+    color: rgb(0, 0, 255);
+  }
+  100% {
+    background-color: rgb(0, 0, 255);
+    color: rgb(255, 0, 0);
+  }
+}
+#admin:hover{
+    animation:none;
+    color: linear-gradient(to right, rgb(0,255,0), blue, red);
+    background-color: linear-gradient(to right, red, rgb(0,255,0), blue);
+}
+        </style>
+    </head>
+    <body>
+        <div id="pagina">
+            <p>bem vindo ao site de projetos</p>
+        </div>
+        <div id="barra_menu"></div>
+        <div id="admin">admin</div>
+        <div id="bt-configuracao">
+            <img src="/static/imagem_configuracao.png">
+        </div>
+        <div id="menu" class="fechado"></div>
+        <div id="bt-menu" class="fechado">
+            <div id="menu_1"></div>
+            <div id="menu_2"></div>
+            <div id="menu_3"></div>
+        </div>
+        <div id="pagina_projetos">
+            <h1 id="titulo"></h1>
+            <div id="texto"></div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script>
+function alternar_menu(){
+    var menu=document.querySelector('#menu')
+    var bt_menu=document.querySelector('#bt-menu')
+    bt_menu.classList.toggle("aberto")
+    bt_menu.classList.toggle("fechado")
+    menu.classList.toggle("aberto")
+    menu.classList.toggle("fechado")
+}
+function entrar_configuracao(){
+    window.location.href='/configuracao'
+}
+document.querySelector("#bt-menu").addEventListener("click",alternar_menu)
+document.querySelector('#bt-configuracao').addEventListener("click",entrar_configuracao)
+// var projetos=[]
+// var projetos_atuais=document.querySelector('#projetos_atuais')
+// function create_titulo(data_a){
+//     site_name=data_a[0]
+//     var titulo=document.querySelector('#titulo')
+//     titulo.textContent=site_name
+// }
+// function create_texto(data_a){
+//     var texto=document.querySelector('#texto')
+//     texto.textContent=site_texto
+// }
+// function adicionar_menu(data_a){
+// var menu=document.querySelector('#menu_div')
+// var opcao=document.createElement('div')
+// opcao.className='opcao'
+// opcao.textContent=data_a[0]
+// menu.appendChild(opcao)
+// }
+// for (var i=0;i<data.length;i++){
+//     projetos.push(data[i])
+//     adicionar_menu(data[i])
+// }
+// function trocar_projetos(){
+    
+// }
+// document.querySelector('#bt_menu').addEventListener('click',function(){
+//     menu.classList.toggle('aberto')
+//     menu.classList.toggle('fechado')
+// })
+document.querySelector("#admin").addEventListener("click",()=>{
+    window.location.href="/admin"
+})
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/static/service-worker.js')
+      .then(function(registration) {
+        console.log('Service Worker registrado com sucesso:', registration);
+      })
+      .catch(function(error) {
+        console.log('Falha ao registrar o Service Worker:', error);
+      });
+  });
+}
+
+        </script>
+    </body>
+</html>
