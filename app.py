@@ -17,17 +17,12 @@ from admin.admin import before_request
 # cursor = banco.cursor()
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 app=Flask('app',static_folder=diretorio_atual+'/static/')
+app.secret_key='secret_chave_key'
+app.config['SECRET_KEY']='chave_para_teste'
 app.config["SESSION_PERMANENT"] = True
-app.secret_key='chave_para_teste'
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = f'{diretorio_atual}/flask_session'
 print(diretorio_atual)
-# app.config['SESSION_FILE_DIR'] = f'{diretorio_atual}/flask_session'
-# app.config['SESSION_COOKIE_PATH'] =f"{diretorio_atual}/flask_session"
-app.config['SESSION_TYPE'] = 'redis'
-app.config['SESSION_REDIS_HOST'] = 'geralsite.onrender.com'
-app.config['SESSION_REDIS_PORT'] = 8080
-app.config['SESSION_REDIS_DB'] = 0
-app.config['SESSION_REDIS_PASSWORD'] = None
-app.config['SESSION_REDIS_PREFIX'] = 'my_app_session'
 Session(app)
 socketio=SocketIO(app)
 def adicionar():

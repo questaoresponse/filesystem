@@ -276,6 +276,16 @@ mcl.style.display='none'
 pcl.style.display='none'
 cll.style.display='none'
 tipo='cadastro'
+var bt_entrar=document.querySelector('#bt-entrar')
+var pergunta=document.querySelector('#pergunta')
+var volta_escolha=document.querySelector('#volta_escolha')
+usuario.style.top='25%'
+email.style.top='35%'
+senha.style.top='45%'
+bt_entrar.style.top='calc(55% + 2px)'
+pergunta.style.top='65%'
+volta_escolha.style.top='77%'
+mensagem_errado.style.display='none'
 }
 function mostrar_login(){
 var mcd=document.querySelector('#mensagem-cadastro')
@@ -291,6 +301,16 @@ mcl.style.display='block'
 pcl.style.display='block'
 cll.style.display='block'
 tipo='login'
+var bt_entrar=document.querySelector('#bt-entrar')
+var pergunta=document.querySelector('#pergunta')
+var volta_escolha=document.querySelector('#volta_escolha')
+usuario.style.top='25%'
+email.style.top='35%'
+senha.style.top='45%'
+bt_entrar.style.top='calc(55% + 2px)'
+pergunta.style.top='65%'
+volta_escolha.style.top='77%'
+mensagem_errado.style.display='none'
 }
 function voltar_escolha(){
 var escolha=document.querySelector('#escolha')
@@ -334,12 +354,12 @@ $.ajax({
         var bt_entrar=document.querySelector('#bt-entrar')
         var pergunta=document.querySelector('#pergunta')
         var volta_escolha=document.querySelector('#volta_escolha')
-        usuario.style.top='30%'
-        email.style.top='40%'
-        senha.style.top='50%'
-        bt_entrar.style.top='calc(60% + 4px)'
-        pergunta.style.top='70%'
-        volta_escolha.style.top='82%'
+        usuario.style.top='calc(30% - 4px)'
+        email.style.top='calc(40% - 4px)'
+        senha.style.top='calc(50% - 4px)'
+        bt_entrar.style.top='calc(60% - 4px)'
+        pergunta.style.top='68%'
+        volta_escolha.style.top='80%'
         mensagem_errado.style.display='flex'
         if (tipo=='login'){
         mensagem_errado.textContent='Email,usuario ou senha incorreto.'
