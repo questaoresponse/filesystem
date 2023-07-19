@@ -284,6 +284,10 @@ function mostrar_pagina_usuarios(){
 //         usuarios=data
 //     }
 // });
+var valor=10;
+if (mobile){
+    valor=5
+}
 function mostrar_resultados_pesquisa(event){
     var pesquisa_usuarios_admin=document.querySelector("#pesquisa_usuarios_admin")
     var valor=document.querySelector("#input_pesquisa_usuarios").value;
@@ -295,10 +299,10 @@ function mostrar_resultados_pesquisa(event){
     }
     if (event.type=="focus"){
         pesquisa_usuarios.style.border="ridge 1px blue"
-        resultado_usuarios.style.top="5.5%"
+        resultado_usuarios.style.top=String(valor+0.5)+"%"
     }else if(event.type=="blur"){
         pesquisa_usuarios.style.border="none";
-        resultado_usuarios.style.top="5%"
+        resultado_usuarios.style.top=String(valor)+"%"
     }
 }
 function voltar_inicio(){
