@@ -18,7 +18,6 @@ from admin.admin import before_request
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 app=Flask('app',static_folder=diretorio_atual+'/static/')
 app.secret_key='secret_chave_key'
-app.config['SECRET_KEY']='chave_para_teste'
 app.config["SESSION_PERMANENT"] = True
 app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = f'{diretorio_atual}/flask_session'
@@ -27,8 +26,8 @@ Session(app)
 socketio=SocketIO(app)
 def adicionar():
     os.getcwd()
-    subprocess.run(["python",f"{diretorio_atual}/adc_gt.py"])
-    #pass
+    subprocess.run(["python",f"{diretorio_atual}/adc_app.py"])
+    # pass
 ips_bloqueados = [ '10.0.0.1']
 @app.before_request
 def before_request_app():
