@@ -27,12 +27,14 @@ form{
     justify-content:center;
     align-items:center;
     text-align:center;
-    width:90vw;
+    width:90%;
     height:90%;
     max-width:400px;
 }
 form.mobile{
-    height:130vw;
+    max-width:none;
+    /* width:150%; */
+    height:70%;
 }
 #escolha{
     margin:0px;
@@ -150,10 +152,12 @@ form.mobile{
     height:calc(10% + 4px);
 }
 #bt-google.mobile{
+    font-size:200%;
     width:90%;
     left:5%;
 }
 #bt-account.mobile{
+    font-size:200%;
     width:90%;
     left:5%;
 }
@@ -226,30 +230,31 @@ form.mobile{
             </div>
             <div id="account">
                 <form id="form" action="/" method="post">
-                    <div class="tipo_mensagem" id="mensagem-cadastro">Fazer cadastro</div>
-                    <div class="tipo_mensagem" id="mensagem-login">Fazer login</div>
-                    <div id="mensagem_errado"></div>
-                    <input type="text" id="usuario" placeholder="insira seu nome de usuário" required>
-                    <input type="email" id="email" placeholder="insira seu email" required>
-                    <input type="password" id="senha" placeholder="insira sua senha" required>
-                    <button id="bt-entrar" type="submit">Entrar</button>
+                    <div class="tipo_mensagem mobile" id="mensagem-cadastro">Fazer cadastro</div>
+                    <div class="tipo_mensagem mobile" id="mensagem-login">Fazer login</div>
+                    <div class="mobile" id="mensagem_errado"></div>
+                    <input type="text" class="mobile" id="usuario" placeholder="insira seu nome de usuário" required>
+                    <input type="email" class="mobile" id="email" placeholder="insira seu email" required>
+                    <input type="password" class="mobile" id="senha" placeholder="insira sua senha" required>
+                    <button id="bt-entrar" class="mobile" type="submit">Entrar</button>
                     <div id="pergunta">
-                        <div class="pergunta_text" id="pergunta-cadastro">Já possui uma conta?</div><a class="pergunta_a"  id="login_link">Fazer login.</a>
-                        <div class="pergunta_text" id="pergunta-login">Não possui uma conta?</div><a class="pergunta_a"  id="cadastro_link">Fazer cadastro.</a>
+                        <div class="pergunta_text mobile" id="pergunta-cadastro">Já possui uma conta?</div><a class="pergunta_a mobile"  id="login_link">Fazer login.</a>
+                        <div class="pergunta_text mobile" id="pergunta-login">Não possui uma conta?</div><a class="pergunta_a mobile"  id="cadastro_link">Fazer cadastro.</a>
                     </div>
-                <div id="volta_escolha">voltar</div>
+                <div class="mobile" id="volta_escolha">voltar</div>
             </form>
             </div>
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-
 <script>
-var mobile;
-function isMobile() {
-  var userAgent = navigator.userAgent;
-  var isMobile = /(iPhone|iPad|Android|BlackBerry|Windows Phone)/i.test(userAgent);
-  mobile=isMobile
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+var mobile=false;
+// Uso da função
+if (isMobileDevice()) {
+  mobile=true
 }
 window.onload=()=>{
 var firebaseConfig = {
@@ -418,11 +423,15 @@ function ajeitar_css(){
 window.addEventListener('resize', function() {
   ajeitar_css();
 });
-if (mobile){
+  if (mobile){
+    var fonte="200%"
     var bt_google=document.querySelector('#bt-google')
     var bt_account=document.querySelector('#bt-account')
     var form=document.querySelector('form')
     var bt_configuracao=document.querySelector("#bt-configuracao")
+    document.querySelectorAll('.mobile').forEach(elemento => {
+        elemento.style.fontSize=fonte
+    });
     bt_google.className="mobile"
     bt_account.className="mobile"
     form.className="mobile"
